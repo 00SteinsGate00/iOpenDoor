@@ -53,6 +53,10 @@
                             <constraint firstItem="8Ot-md-QzM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wR1-RV-g9r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lockSymbol" destination="8Ot-md-QzM" id="kF4-dx-ftm"/>
+                        <outlet property="timeStamp" destination="R52-yt-s8S" id="MsP-uM-OUy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

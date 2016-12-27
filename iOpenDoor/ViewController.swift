@@ -41,6 +41,8 @@ class ViewController: UIViewController {
                 // set the UI to unknown
                 DispatchQueue.main.async {
                     self.statusUnknown()
+                    // update the timestamp
+                    self.setTimeStamp()
                 }
                 return
             }
@@ -66,6 +68,9 @@ class ViewController: UIViewController {
                                 self.doorIsClosed()
                             }
                             
+                            // update the timestamp
+                            self.setTimeStamp()
+                            
                         }
                         
                         
@@ -76,6 +81,8 @@ class ViewController: UIViewController {
                         // set the UI to unknown
                         DispatchQueue.main.async {
                             self.statusUnknown()
+                            // update the timestamp
+                            self.setTimeStamp()
                         }
                         return
                     }
@@ -88,6 +95,8 @@ class ViewController: UIViewController {
                     // set the UI to unknown
                     DispatchQueue.main.async {
                         self.statusUnknown()
+                        // update the timestamp
+                        self.setTimeStamp()
                     }
                     return
                 }
@@ -117,6 +126,17 @@ class ViewController: UIViewController {
     func statusUnknown() {
         self.view.backgroundColor = UIColor(red: 253/255.0, green: 188/255.0, blue: 64/255.0, alpha: 1.0)
         self.lockSymbol.image = UIImage(named: "StatusUnknown")
+    }
+    
+    // sets the timestamp in the UI to the current time
+    // it represents when the status was last updated
+    func setTimeStamp() {
+        let currentTime = Date()
+        let dateFormatter = DateFormatter()
+        
+        let timeString = DateFormatter.localizedString(from: currentTime, dateStyle: .none, timeStyle: .short)
+        
+        self.timeStamp.text = timeString
     }
 }
 

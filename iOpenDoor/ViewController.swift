@@ -38,7 +38,10 @@ class ViewController: UIViewController {
             // check for error
             if(error != nil){
                 print("Error calling OpenDoor")
-
+                // set the UI to unknown
+                DispatchQueue.main.async {
+                    self.statusUnknown()
+                }
                 return
             }
             // no error
@@ -70,6 +73,10 @@ class ViewController: UIViewController {
                     // 'opendoor' not found in response JSON
                     else{
                         print("Error getting opendoor from JSON")
+                        // set the UI to unknown
+                        DispatchQueue.main.async {
+                            self.statusUnknown()
+                        }
                         return
                     }
                     
@@ -78,6 +85,10 @@ class ViewController: UIViewController {
                 // error converting the JSON object
                 catch {
                     print ("Error trying to parse JSON")
+                    // set the UI to unknown
+                    DispatchQueue.main.async {
+                        self.statusUnknown()
+                    }
                     return
                 }
                 
@@ -101,5 +112,12 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor(red: 252/255.0, green: 96/255.0, blue: 92/255.0, alpha: 1.0)
         self.lockSymbol.image = UIImage(named: "LockClosed")
     }
+    
+    // updates the UI to unknown
+    func statusUnknown() {
+        self.view.backgroundColor = UIColor(red: 253/255.0, green: 188/255.0, blue: 64/255.0, alpha: 1.0)
+        self.lockSymbol.image = UIImage(named: "StatusUnknown")
+    }
 }
+
 

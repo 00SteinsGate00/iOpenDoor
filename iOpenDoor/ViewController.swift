@@ -110,6 +110,11 @@ class ViewController: UIViewController {
         
     }
     
+    // when the lock icon was tapped update the status
+    @IBAction func lockIconTapped(_ sender: UITapGestureRecognizer) {
+        self.updateStatus()
+    }
+    
     // updates the UI to open
     func doorIsOpen() {
         self.view.backgroundColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0)

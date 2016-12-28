@@ -49,9 +49,14 @@
                                     <outletCollection property="gestureRecognizers" destination="87A-UJ-czu" appends="YES" id="tRq-UM-ZhL"/>
                                 </connections>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-5K-vy8">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dKU-5K-vy8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2md-ip-tUT"/>
+                            <constraint firstItem="dKU-5K-vy8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4d1-lQ-qIq"/>
                             <constraint firstItem="8Ot-md-QzM" firstAttribute="top" secondItem="dwP-cJ-I2y" secondAttribute="bottom" constant="148" id="SFq-lq-4y1"/>
                             <constraint firstItem="R52-yt-s8S" firstAttribute="top" secondItem="8Ot-md-QzM" secondAttribute="bottom" constant="20" id="YiE-0z-GB7"/>
                             <constraint firstAttribute="trailing" secondItem="dwP-cJ-I2y" secondAttribute="trailing" id="cHU-u8-fZe"/>
@@ -64,6 +69,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dKU-5K-vy8" id="WpP-bU-blO"/>
                         <outlet property="lockSymbol" destination="8Ot-md-QzM" id="kF4-dx-ftm"/>
                         <outlet property="timeStamp" destination="R52-yt-s8S" id="MsP-uM-OUy"/>
                     </connections>

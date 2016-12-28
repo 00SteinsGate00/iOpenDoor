@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     // MARK vars
     @IBOutlet weak var lockSymbol: UIImageView!
     @IBOutlet weak var timeStamp: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,10 @@ class ViewController: UIViewController {
 
     // calls the OpenDoor API and sets the UI to open or closed accordingly
     func updateStatus() {
+        
+        // start the activity indicator
+        self.activityIndicator.startAnimating()
+        self.lockSymbol.isHidden = true
         
         // request to the OpenDoor API
         let urlrequest = URLRequest(url: URL(string: "https://www.fachschaft.cs.uni-kl.de/opendoor.json")!)
@@ -43,6 +48,8 @@ class ViewController: UIViewController {
                     self.statusUnknown()
                     // update the timestamp
                     self.setTimeStamp()
+                    self.activityIndicator.stopAnimating()
+                    self.lockSymbol.isHidden = false
                 }
                 return
             }
@@ -70,6 +77,8 @@ class ViewController: UIViewController {
                             
                             // update the timestamp
                             self.setTimeStamp()
+                            self.activityIndicator.stopAnimating()
+                            self.lockSymbol.isHidden = false
                             
                         }
                         
@@ -83,6 +92,8 @@ class ViewController: UIViewController {
                             self.statusUnknown()
                             // update the timestamp
                             self.setTimeStamp()
+                            self.activityIndicator.stopAnimating()
+                            self.lockSymbol.isHidden = false
                         }
                         return
                     }
@@ -97,6 +108,8 @@ class ViewController: UIViewController {
                         self.statusUnknown()
                         // update the timestamp
                         self.setTimeStamp()
+                        self.activityIndicator.stopAnimating()
+                        self.lockSymbol.isHidden = false
                     }
                     return
                 }
@@ -137,10 +150,7 @@ class ViewController: UIViewController {
     // it represents when the status was last updated
     func setTimeStamp() {
         let currentTime = Date()
-        let dateFormatter = DateFormatter()
-        
         let timeString = DateFormatter.localizedString(from: currentTime, dateStyle: .none, timeStyle: .short)
-        
         self.timeStamp.text = timeString
     }
 }

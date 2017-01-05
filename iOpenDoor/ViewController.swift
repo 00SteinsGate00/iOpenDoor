@@ -136,20 +136,29 @@ class ViewController: UIViewController {
     
     // updates the UI to open
     func doorIsOpen() {
-        self.view.backgroundColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0)
-        self.lockSymbol.image = UIImage(named: "LockOpened")
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.view.backgroundColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1.0)
+                self.lockSymbol.image = UIImage(named: "LockOpened")
+        }, completion: nil)
+        
     }
     
     // updates the UI to closed
     func doorIsClosed() {
-        self.view.backgroundColor = UIColor(red: 252/255.0, green: 96/255.0, blue: 92/255.0, alpha: 1.0)
-        self.lockSymbol.image = UIImage(named: "LockClosed")
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.view.backgroundColor = UIColor(red: 252/255.0, green: 96/255.0, blue: 92/255.0, alpha: 1.0)
+            self.lockSymbol.image = UIImage(named: "LockClosed")
+        }, completion: nil)
+        
     }
     
     // updates the UI to unknown
     func statusUnknown() {
-        self.view.backgroundColor = UIColor(red: 253/255.0, green: 188/255.0, blue: 64/255.0, alpha: 1.0)
-        self.lockSymbol.image = UIImage(named: "StatusUnknown")
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.view.backgroundColor = UIColor(red: 253/255.0, green: 188/255.0, blue: 64/255.0, alpha: 1.0)
+            self.lockSymbol.image = UIImage(named: "StatusUnknown")
+        }, completion: nil)
+        
     }
     
     // sets the timestamp in the UI to the current time

@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					674B09E31E12F2EB006A87DD = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M4T54NH7P3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M4T54NH7P3;
 				INFOPLIST_FILE = iOpenDoor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fachschaft.cs.uni-kl.de.iOpenDoor";
@@ -272,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M4T54NH7P3;
 				INFOPLIST_FILE = iOpenDoor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fachschaft.cs.uni-kl.de.iOpenDoor";
@@ -299,6 +302,7 @@
 				674B09F81E12F2EB006A87DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -178,8 +178,8 @@ class ViewController: UIViewController {
         let translation = recognizer.translation(in: self.view)
         
         // animate lock sybol and timestamp
-        self.lockSymbol.center.y = max(self.lockSymbolOriginalPos.y, self.lockSymbol.center.y +  0.8 * translation.y)
-        self.timeStamp.center.y  = max(self.timeStampOriginalPos.y,  self.timeStamp.center.y  +  0.6 * translation.y)
+        self.lockSymbol.center.y = max(self.lockSymbolOriginalPos.y, self.lockSymbol.center.y +  0.6 * translation.y)
+        self.timeStamp.center.y  = max(self.timeStampOriginalPos.y,  self.timeStamp.center.y  +  0.4 * translation.y)
         
         // reset the gesture recognizer
         recognizer.setTranslation(CGPoint(x: 0, y: 0), in: self.view)

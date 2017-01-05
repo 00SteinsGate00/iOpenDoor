@@ -29,9 +29,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Ot-md-QzM" secondAttribute="height" multiplier="1:1" id="8Ea-vn-aCJ"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="87A-UJ-czu" appends="YES" id="tRq-UM-ZhL"/>
-                                </connections>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-5K-vy8">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
@@ -53,6 +50,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="dKU-5K-vy8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2md-ip-tUT"/>
                             <constraint firstItem="dKU-5K-vy8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4d1-lQ-qIq"/>
@@ -66,6 +64,9 @@
                             <constraint firstItem="R52-yt-s8S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="111" id="tb5-Df-72d"/>
                             <constraint firstItem="8Ot-md-QzM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="46" id="wTy-Mx-7D4"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="99C-hj-Gwc" appends="YES" id="hVB-fr-JVr"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dKU-5K-vy8" id="WpP-bU-blO"/>
@@ -74,11 +75,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="87A-UJ-czu">
+                <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="99C-hj-Gwc">
                     <connections>
-                        <action selector="lockIconTapped:" destination="BYZ-38-t0r" id="TOu-sg-WG4"/>
+                        <action selector="pullToRereshWithRecognizer:" destination="BYZ-38-t0r" id="vx3-0L-sva"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="Vbq-oc-MSL"/>
                     </connections>
-                </tapGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="135.19999999999999" y="138.0809595202399"/>
         </scene>

@@ -15,10 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // positions for the pull to refresh mechanies
+    var lockSymbolOriginalPos:CGPoint!
+    var timeStampOriginalPos:CGPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "FS Informatik"
         self.updateStatus()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // set the orignal positions of the symbols
+        lockSymbolOriginalPos = lockSymbol.center
+        timeStampOriginalPos  = timeStamp.center
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,11 +132,7 @@ class ViewController: UIViewController {
         task.resume()
         
     }
-    
-    // when the lock icon was tapped update the status
-    @IBAction func lockIconTapped(_ sender: UITapGestureRecognizer) {
-        self.updateStatus()
-    }
+
     
     // updates the UI to open
     func doorIsOpen() {
@@ -153,6 +158,39 @@ class ViewController: UIViewController {
         let currentTime = Date()
         let timeString = DateFormatter.localizedString(from: currentTime, dateStyle: .none, timeStyle: .short)
         self.timeStamp.text = timeString
+    }
+    
+    
+    // MARK: Gesture
+    
+    @IBAction func pullToReresh(recognizer: UIPanGestureRecognizer) {
+        
+        // get the translation of the pan
+        let translation = recognizer.translation(in: self.view)
+        
+        // animate lock sybol and timestamp
+        self.lockSymbol.center.y = max(self.lockSymbolOriginalPos.y, self.lockSymbol.center.y +  0.8 * translation.y)
+        self.timeStamp.center.y  = max(self.timeStampOriginalPos.y,  self.timeStamp.center.y  +  0.6 * translation.y)
+        
+        // reset the gesture recognizer
+        recognizer.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
+        
+        
+        // when the user stopped dragging, move the symbols back to the orignal  position and trigger the refresh action
+        if recognizer.state == UIGestureRecognizerState.ended {
+            
+            // move the symbols back to their original positions
+            UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                self.lockSymbol.center = self.lockSymbolOriginalPos
+                self.timeStamp.center  = self.timeStampOriginalPos
+            },
+            // refresh open state when the animation finished
+            completion: { finished in
+                self.updateStatus()
+            })
+                        
+            
+        }
     }
 }
 

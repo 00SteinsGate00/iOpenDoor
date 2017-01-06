@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lockSymbol: UIImageView!
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var gestureHandler: UIPanGestureRecognizer!
     
     // positions for the pull to refresh mechanies
     var lockSymbolOriginalPos:CGPoint!
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
         // start the activity indicator
         self.activityIndicator.startAnimating()
         self.lockSymbol.isHidden = true
+        self.gestureHandler.isEnabled = false
         
         // request to the OpenDoor API
         let urlrequest = URLRequest(url: URL(string: "https://www.fachschaft.cs.uni-kl.de/opendoor.json")!)
@@ -60,6 +62,7 @@ class ViewController: UIViewController {
                     self.setTimeStamp()
                     self.activityIndicator.stopAnimating()
                     self.lockSymbol.isHidden = false
+                    self.gestureHandler.isEnabled = true
                 }
                 return
             }
@@ -89,6 +92,7 @@ class ViewController: UIViewController {
                             self.setTimeStamp()
                             self.activityIndicator.stopAnimating()
                             self.lockSymbol.isHidden = false
+                            self.gestureHandler.isEnabled = true
                             
                         }
                         
@@ -104,6 +108,7 @@ class ViewController: UIViewController {
                             self.setTimeStamp()
                             self.activityIndicator.stopAnimating()
                             self.lockSymbol.isHidden = false
+                            self.gestureHandler.isEnabled = true
                         }
                         return
                     }

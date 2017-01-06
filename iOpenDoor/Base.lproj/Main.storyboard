@@ -70,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dKU-5K-vy8" id="WpP-bU-blO"/>
+                        <outlet property="gestureHandler" destination="99C-hj-Gwc" id="KYe-nR-P4B"/>
                         <outlet property="lockSymbol" destination="8Ot-md-QzM" id="kF4-dx-ftm"/>
                         <outlet property="timeStamp" destination="R52-yt-s8S" id="MsP-uM-OUy"/>
                     </connections>

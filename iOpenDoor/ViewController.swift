@@ -177,9 +177,16 @@ class ViewController: UIViewController {
         // get the translation of the pan
         let translation = recognizer.translation(in: self.view)
         
+        // distance travelled so far
+        // if not moved then 1 else movement
+        let distanceTravelled = self.lockSymbol.center.y == self.lockSymbolOriginalPos.y ? 1 : self.lockSymbol.center.y - self.lockSymbolOriginalPos.y
+        
+        // the movefactor should be between 0 and 1
+        let moveFactor = min((1 / distanceTravelled) * 20, 1)
+        
         // animate lock sybol and timestamp
-        self.lockSymbol.center.y = max(self.lockSymbolOriginalPos.y, self.lockSymbol.center.y +  0.6 * translation.y)
-        self.timeStamp.center.y  = max(self.timeStampOriginalPos.y,  self.timeStamp.center.y  +  0.4 * translation.y)
+        self.lockSymbol.center.y = max(self.lockSymbolOriginalPos.y, self.lockSymbol.center.y +  0.6 * moveFactor * translation.y)
+        self.timeStamp.center.y  = max(self.timeStampOriginalPos.y,  self.timeStamp.center.y  +  0.4 * moveFactor * translation.y)
         
         // reset the gesture recognizer
         recognizer.setTranslation(CGPoint(x: 0, y: 0), in: self.view)

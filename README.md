@@ -4,6 +4,8 @@ This is an iOS App for the OpenDoor System of the Fachschaft Informatik at TU Ka
 
 It displays wether the door to the Fachschaft is locked or not.
 
+![Music Server Screenshot](http://files.janholub.de/iOpenDoorShowcase.png)
+
 The OpenDoor System was developed and built by @roba91 and the Android App was devloped by @ayonix
 
 
